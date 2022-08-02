@@ -7,7 +7,7 @@ namespace KataTraining.CycleFinder
     {
         public static bool DetectCycleInArray(int[] array)
         {
-            int harePos = 1;
+            int harePos = 0;
             for (int i = 0; i < array.Length; i++)
             {
 
@@ -17,14 +17,16 @@ namespace KataTraining.CycleFinder
                 {
                     harePos = harePos - array.Length;
                 }
-                var hareValue = array[i];
+                var hareValue = array[harePos];
                 harePos += 2;
-                if (tortoiseValue == hareValue)
+                if (tortoiseValue == hareValue && i != 0)
                 {
                     return true;
                 }
             }
             return false;
         }
+
     }
 }
+
